@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GameZone</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Game<span>Zone</span></div>
+
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#games">Games</a>
+                <a href="#about">About</a>
+            </div>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+                <p class="small-title">WELCOME TO GAMEZONE</p>
+
+                <h1>
+                    Play.
+                    <span>Relax.</span>
+                    Enjoy.
+                </h1>
+
+                <p class="hero-text">
+                    Discover simple and fun browser games.
+                    No login. No downloads. Just play.
+                </p>
+
+                <a href="#games" class="play-button">
+                    Explore Games
+                </a>
+            </div>
+
+        </section>
+
+
+        <!-- GAMES -->
+        <section class="games-section" id="games">
+
+    <div class="section-header">
+        <p class="small-title">OUR GAMES</p>
+
+        <h2>Choose a Game</h2>
+
+        <p>
+            Pick a game and start playing instantly.
+        </p>
+    </div>
+
+
+    <div class="games-grid">
+
+        <!-- GAME 1 -->
+        <div class="game-card">
+
+            <div class="game-icon">
+                🧠
+            </div>
+
+            <div class="game-info">
+
+                <h3>Memory Train</h3>
+
+                <p>
+                    Test your memory by matching
+                    the cards.
+                </p>
+
+                <button onclick="openMemoryGame()">
+                    Play Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- GAME 2 -->
+        <div class="game-card">
+
+            <div class="game-icon">
+                🎯
+            </div>
+
+            <div class="game-info">
+
+                <h3>Reaction Time</h3>
+
+                <p>
+                    Test your speed and reaction time.
+                </p>
+
+                <button onclick="openTargetGame()">
+    Play Now
+</button>
+            </div>
+
+        </div>
+
+
+        <!-- GAME 3 -->
+        <div class="game-card">
+
+            <div class="game-icon">
+                🧩
+            </div>
+
+            <div class="game-info">
+
+                <h3>Quick Puzzle</h3>
+
+                <p>
+                    Solve simple puzzles and challenge yourself.
+                </p>
+
+               <button onclick="openPuzzleGame()">
+    Play Now
+</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+        <!-- ABOUT -->
+        <section class="about-section" id="about">
+
+            <p class="small-title">ABOUT</p>
+
+            <h2>Simple Gaming.</h2>
+
+            <p>
+                GameZone is a free browser gaming website.
+                No account is required and no downloads are needed.
+            </p>
+
+        </section>
+<!-- MEMORY GAME -->
+
+<div id="memoryGame" class="game-overlay">
+
+    <div class="memory-container">
+
+        <button class="close-game" onclick="closeMemoryGame()">
+            ✕
+        </button>
+
+        <p class="small-title">MEMORY MATCH</p>
+
+        <h2>Find the Pairs</h2>
+
+        <p class="memory-description">
+            Match all the cards to win.
+        </p>
+
+        <div class="game-stats">
+
+            <div>
+                <span>Moves</span>
+                <strong id="moves">0</strong>
+            </div>
+
+            <div>
+                <span>Matches</span>
+                <strong id="matches">0</strong>
+            </div>
+
+        </div>
+
+        <div id="memoryBoard" class="memory-board"></div>
+
+        <div id="winMessage" class="win-message"></div>
+
+        <button class="restart-button" onclick="startMemoryGame()">
+            Restart Game
+        </button>
+
+    </div>
+
+</div>
+<!-- TARGET CLICK GAME -->
+
+<div id="targetGame" class="game-overlay">
+
+    <div class="target-container">
+
+        <button class="close-game" onclick="closeTargetGame()">
+            ✕
+        </button>
+
+        <p class="small-title">TARGET CLICK</p>
+
+        <h2>Click the Target</h2>
+
+        <p class="target-description">
+            Click the target as many times as you can before time runs out.
+        </p>
+
+
+        <div class="target-stats">
+
+            <div>
+                <span>Score</span>
+                <strong id="targetScore">0</strong>
+            </div>
+
+            <div>
+                <span>Time</span>
+                <strong id="targetTime">30</strong>
+            </div>
+
+        </div>
+
+
+        <div id="targetArea" class="target-area">
+
+            <button
+                id="target"
+                class="target"
+                onclick="hitTarget()">
+                🎯
+            </button>
+
+        </div>
+
+
+        <div id="targetMessage" class="target-message"></div>
+
+
+        <button
+            class="restart-button"
+            onclick="startTargetGame()">
+            Restart Game
+        </button>
+
+    </div>
+
+</div>
+<!-- QUICK PUZZLE GAME -->
+
+<div id="puzzleGame" class="game-overlay">
+
+    <div class="puzzle-container">
+
+        <button class="close-game" onclick="closePuzzleGame()">
+            ✕
+        </button>
+
+        <p class="small-title">QUICK PUZZLE</p>
+
+        <h2>Arrange the Numbers</h2>
+
+        <p class="puzzle-description">
+            Click the numbers from 1 to 8 in the correct order.
+        </p>
+
+        <div class="puzzle-stats">
+
+            <div>
+                <span>Time</span>
+                <strong id="puzzleTime">30</strong>
+            </div>
+
+            <div>
+                <span>Moves</span>
+                <strong id="puzzleMoves">0</strong>
+            </div>
+
+        </div>
+
+        <div id="puzzleBoard" class="puzzle-board"></div>
+
+        <div id="puzzleMessage" class="puzzle-message"></div>
+
+        <button
+            class="restart-button"
+            onclick="startPuzzleGame()">
+            Restart Game
+        </button>
+
+    </div>
+
+</div>
+    </main>
+
+
+    <footer>
+
+        <p>
+            © 2026 GameZone. Made for gamers.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
